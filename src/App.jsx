@@ -1,35 +1,28 @@
-import React,{useState} from 'react';
+import React,{useState} from 'react'
 function App() {
-const [fillcolor,setFillcolor]=useState("");
-var items=[];
-for(let i=1;i<=100;i++){
-items.push(<div onClick={() =>changeColor(i)} className="border border-gray-600 text-center">
-{i}
-</div>)
-}
-// const changeditems=[];
-function changeColor(index){
-alert(index);
-setFillcolor("yellow");
-for(var i=0;i<items.length;i++){
-if((i+1)%index===0){
-console.warn("change",(i+1));
-items[i]=<div style={{backgroundColor: fillcolor}} className="border border-gray-600 text-center">
-{(i+1)}
-</div>
-}
-}
-console.log(items[0]);
-}
-
-// console.log(changeditems);
-
+  const [selectedIndex, setSelectedIndex] = useState(null);
+  const items = [];
+  for (let i = 1; i <= 100; i++) {
+    let style = {};
+    if(selectedIndex !== null && i % selectedIndex === 0){
+        style = {
+            backgroundColor: "yellow"
+        };
+    }
+    items.push(<div onClick={() => changeColor(i)} className="border border-gray-600 text-center" style={style}>
+      {i}
+    </div>)
+  }
+  function changeColor(index) {
+    // only need to set the state here
+    setSelectedIndex(index);
+  }
   return (
     <div className="App">
-     <div className="container">
-     <div className="grid grid-cols-10 grid-rows-10">
-       {items}
-      </div>
+      <div className="container">
+        <div className="grid grid-cols-10 grid-rows-10">
+          {items}
+        </div>
       </div>
     </div>
   );
