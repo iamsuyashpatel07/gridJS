@@ -1,0 +1,23 @@
+#method -1
+function changeColor(index){
+alert(index);
+setFillcolor("yellow");
+for(var i=0;i<=items.length;i++){
+if(i%index===0){
+items[i]=<div style={{backgroundColor: fillcolor}} className="border border-gray-600 text-center">
+{i}
+</div>
+}
+}
+// console.log(changeditems);
+}
+#method -2
+function changeColor(index){
+  alert(index);
+  setFillcolor("yellow");
+  items.forEach((item, i) => {
+  if(i%index===0){
+    item[i]=<div style={{backgroundColor: fillcolor}} className="border border-gray-600 text-center">{i}</div>;
+  }
+  });
+}

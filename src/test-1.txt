@@ -1,0 +1,33 @@
+import React,{useState} from 'react';
+function App() {
+const [fillcolor,setFillcolor]=useState("");
+var items=[];
+for(let i=1;i<=100;i++){
+items.push(<div onClick={() =>changeColor(i)} className="border border-gray-600 text-center">
+{i}
+</div>)
+}
+// const changeditems=[];
+function changeColor(index){
+alert(index);
+setFillcolor("yellow");
+items[index-1] = 
+    <div style={{backgroundColor: fillcolor}} className="border border-gray-600 text-center">
+   {index}
+</div>;
+console.log(items[0]);
+}
+
+// console.log(changeditems);
+
+  return (
+    <div className="App">
+     <div className="container">
+     <div className="grid grid-cols-10 grid-rows-10">
+       {items}
+      </div>
+      </div>
+    </div>
+  );
+}
+export default App;
